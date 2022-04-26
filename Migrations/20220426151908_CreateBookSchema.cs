@@ -158,7 +158,7 @@ namespace AppDev1.Migrations
                 table: "Store",
                 column: "UserId",
                 unique: true); 
-            /// test commit
+    
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
