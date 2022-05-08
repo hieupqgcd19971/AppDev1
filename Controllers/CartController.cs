@@ -28,7 +28,8 @@ namespace AppDev1.Controllers
         // GET: Cart
         public async Task<IActionResult> Index()
         {
-            var userContext = _context.Cart.Include(c => c.Book).Include(c => c.User);
+            var userid = _userManager.GetUserId(HttpContext.User);
+            var userContext = _context.Cart.Include(c => c.Book).Include(c => c.User).Where( c => c.UserId == userid);
             return View(await userContext.ToListAsync());
         }
 
