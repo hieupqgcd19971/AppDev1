@@ -192,12 +192,26 @@ namespace AppDev1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BookIsbn,Title,Pages,Author,Category,Price,Desc,ImgUrl,StoreId")] Book book)
+        public async Task<IActionResult> Edit(string id, [Bind("BookIsbn,Title,Pages,Author,Category,Price,Desc,ImgUrl,StoreId")] Book book, IFormFile image)
         {
             if (id != book.BookIsbn)
             {
                 return NotFound();
             }
+            if (image != null)
+            {
+                string imgName = book.BookIsbn + Path.GetExtension(image.FileName);
+                string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", imgName);
+                using (var stream = new FileStream(savePath, FileMode.Create))
+                {
+                    image.CopyTo(stream);
+                }
+                book.ImgUrl = imgName;
+            }
+            /*else
+            {
+                return View(book);
+            }*/
 
             if (ModelState.IsValid)
             {
@@ -219,7 +233,7 @@ namespace AppDev1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StoreId"] = new SelectList(_context.Store, "Id", "Id", book.StoreId);
+            /*ViewData["StoreId"] = new SelectList(_context.Store, "Id", "Id", book.StoreId);*/
             return View(book);
         }
 
