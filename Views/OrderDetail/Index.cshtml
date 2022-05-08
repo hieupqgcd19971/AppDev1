@@ -5,22 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h1> Order Details </h1>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Order)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book)
+                @Html.DisplayNameFor(model => model.Book.Title)
+            </th>
+            <th class="d-flex justify-content-around">
+                @Html.DisplayNameFor(model => model.Book.ImgUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book.Price)
             </th>
             <th></th>
         </tr>
@@ -29,13 +31,22 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Order.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Book.BookIsbn)
+                @Html.DisplayFor(modelItem => item.Book.Title)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.ImgUrl)*@
+                <div class="d-flex justify-content-around">
+                    <img src="@("/images/" + item.Book.ImgUrl)" asp-append-version="true"  style="max-width: 30% "/>
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Price)
             </td>
            @* <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
