@@ -198,43 +198,47 @@ namespace AppDev1.Controllers
             {
                 return NotFound();
             }
-            if (image != null)
+            else
             {
-                string imgName = book.BookIsbn + Path.GetExtension(image.FileName);
-                string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", imgName);
-                using (var stream = new FileStream(savePath, FileMode.Create))
+                if (image != null)
                 {
-                    image.CopyTo(stream);
+                    string imgName = book.BookIsbn + Path.GetExtension(image.FileName);
+                    string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", imgName);
+                    using (var stream = new FileStream(savePath, FileMode.Create))
+                    {
+                        image.CopyTo(stream);
+                    }
+                    book.ImgUrl = imgName;
                 }
-                book.ImgUrl = imgName;
-            }
-            /*else
-            {
-                return View(book);
-            }*/
+                /*else
+                {
+                    return View(book);
+                }*/
 
-            if (ModelState.IsValid)
-            {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(book);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BookExists(book.BookIsbn))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(book);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!BookExists(book.BookIsbn))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
             }
+
             /*ViewData["StoreId"] = new SelectList(_context.Store, "Id", "Id", book.StoreId);*/
-            return View(book);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Book/Delete/5
