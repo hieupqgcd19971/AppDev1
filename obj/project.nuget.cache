@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "p8LcRAhGQ17S0ba1QNPhRdiVhpMbH///rKeO2587qTBIut/NwAHDLx0CGUej/hQFiZh5jjJ7iha8leJhp0Q7Ag==",
+  "dgSpecHash": "99gq9SAmUr1uXsq/LSrmvMx3tMB1+rVOmWaDo2fqs7Dw0KQfMSCCt3b0fia9vnEF30gdjTL2OXNETogTxJJSxg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\AppDev1.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\bootstrap\\4.0.0\\bootstrap.4.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
@@ -90,6 +92,7 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\nuget.projectmodel\\5.11.0\\nuget.projectmodel.5.11.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\nuget.protocol\\5.11.0\\nuget.protocol.5.11.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\nuget.versioning\\5.11.0\\nuget.versioning.5.11.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\popper.js\\1.12.9\\popper.js.1.12.9.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

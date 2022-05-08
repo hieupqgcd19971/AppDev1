@@ -30,10 +30,6 @@ public class UserContext : IdentityDbContext<AppUser>
             .HasOne<Store>(au => au.Store)
             .WithOne(st => st.User)
             .HasForeignKey<Store>(st => st.UserId);
-        builder.Entity<AppUser>()
-            .HasOne<Cart>(au => au.Cart)
-            .WithOne(c => c.User)
-            .HasForeignKey<Cart>(c => c.UserId);
 
         builder.Entity<Book>()
             .HasOne<Store>(b => b.Store)
@@ -55,11 +51,19 @@ public class UserContext : IdentityDbContext<AppUser>
             .HasOne<Book>(od => od.Book)
             .WithMany(b => b.OrderDetails)
             .HasForeignKey(od => od.BookIsbn);
-
         builder.Entity<Cart>()
-            .HasKey(c => new { c.UserId, c.BookIsbn });
-        
+           .HasKey(c => new { c.UserId, c.BookIsbn });
+        builder.Entity<Cart>()
+            .HasOne<AppUser>(c => c.User)
+            .WithMany(u => u.Carts)
+            .HasForeignKey(c => c.UserId);
+        builder.Entity<Cart>()
+            .HasOne<Book>(od => od.Book)
+            .WithMany(b => b.Carts)
+            .HasForeignKey(od => od.BookIsbn)
+            .OnDelete(DeleteBehavior.NoAction);
 
-  
+
+
     }
 }

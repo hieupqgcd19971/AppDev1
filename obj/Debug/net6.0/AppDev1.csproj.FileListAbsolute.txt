@@ -273,3 +273,5 @@ C:\Users\ASUS\source\repos\AppDev1\AppDev1\bin\Debug\net6.0\Swashbuckle.AspNetCo
 C:\Users\ASUS\source\repos\AppDev1\AppDev1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ASUS\source\repos\AppDev1\AppDev1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\ASUS\source\repos\AppDev1\AppDev1\obj\Debug\net6.0\AppDev1.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ASUS\source\repos\AppDev1\AppDev1\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutUser.cshtml.rz.scp.css
+C:\Users\ASUS\source\repos\AppDev1\AppDev1\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutAdmin.cshtml.rz.scp.css

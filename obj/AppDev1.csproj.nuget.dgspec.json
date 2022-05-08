@@ -69,6 +69,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.3.0, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.0.0, )"
             }
           },
           "imports": [

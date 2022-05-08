@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AppDev1.Models.Book>
+
+
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="container" style="margin-top:10%">
+	@foreach (var item in Model)
+   {
+	   
+<div class="row row-cols-1 row-cols-md-2 g-4 align-items-center justify-content-center">
+			<a class="" asp-controller="Book" asp-action="DetailBook" asp-route-Isbn ="@item.BookIsbn">
+			<div class="col card mb-2 ms-5 w-75" style="width: 50%;">
+				<div class="g-0 d-flex flex-row">
+					<div class="col align-items-center" style="width: 100%!important;">
+						<img src="@("~/" + item.ImgUrl)" asp-append-version = "true" class="img-thumbnail w-100" style="width: 100%!important; height: 38vh!important;" alt="...">
+					</div>
+					<div class="col-9">
+						<div class="card-body fs-3">
+							<h3 class="card-title fs-2 text-dark">@Html.DisplayFor(modelItem => item.Title)</h3>
+							<h5 class="card-title fs-3 text-dark">@Html.DisplayFor(modelItem => item.Author)</h5>
+							<p class="card-text text-dark" style="text-align: justify;">@Html.DisplayFor(modelItem => item.Desc)</p>
+							<p class="card-text text-dark"> @Html.DisplayFor(modelItem => item.Store.Name)</p>
+							<div class="d-flex justify-content-between">
+								<p class="card-text text-dark"><small class="text-muted">Price: @Html.DisplayFor(modelItem => item.Price)</small></p>
+								
+							</div>
+							<div >
+								<a asp-controller="Cart" asp-action="Index" class="btn btn-danger fs-3" >Add to cart</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</a>
+		</div>
+		}
+		  <div style="display:flex;text-align:center;justify-content:center">
+      <nav aria-label="Page navigation example">
+          <ul class="pagination">
+              @for (var i = 0; i < @ViewBag.numberOfPages; i++)
+              {
+                  var style = (ViewBag.currentPage == @i) ? "active" : "";
+                  <li class="page-item @style">
+                      <a class="page-link" asp-route-id="@i">@(i+1)</a>
+                  </li>
+              }
+          </ul>
+      </nav>
+  </div>
+
+		</div>

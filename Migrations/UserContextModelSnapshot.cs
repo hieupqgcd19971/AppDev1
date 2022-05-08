@@ -142,10 +142,12 @@ namespace AppDev1.Migrations
                     b.Property<string>("BookIsbn")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("UserId", "BookIsbn");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("BookIsbn");
 
                     b.ToTable("Cart");
                 });
@@ -375,11 +377,19 @@ namespace AppDev1.Migrations
 
             modelBuilder.Entity("AppDev1.Models.Cart", b =>
                 {
+                    b.HasOne("AppDev1.Models.Book", "Book")
+                        .WithMany("Carts")
+                        .HasForeignKey("BookIsbn")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("AppDev1.Areas.Identity.Data.AppUser", "User")
-                        .WithOne("Cart")
-                        .HasForeignKey("AppDev1.Models.Cart", "UserId")
+                        .WithMany("Carts")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Book");
 
                     b.Navigation("User");
                 });
@@ -478,8 +488,7 @@ namespace AppDev1.Migrations
 
             modelBuilder.Entity("AppDev1.Areas.Identity.Data.AppUser", b =>
                 {
-                    b.Navigation("Cart")
-                        .IsRequired();
+                    b.Navigation("Carts");
 
                     b.Navigation("Orders");
 
@@ -488,6 +497,8 @@ namespace AppDev1.Migrations
 
             modelBuilder.Entity("AppDev1.Models.Book", b =>
                 {
+                    b.Navigation("Carts");
+
                     b.Navigation("OrderDetails");
                 });
 
