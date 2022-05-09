@@ -179,26 +179,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EYYc9z6MKnksu+bvT5qLbVMSQqG889rGfd5+tLQ4x5g=",
+  "Hash": "PlOJW21j/bugf3mt9hzAUQWklwHOURQ5gsoEwNBj/Oo=",
   "Source": "AppDev1",
   "BasePath": "_content/AppDev1",
   "Mode": "Default",
@@ -4979,6 +4979,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\3232.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\images\\ahahabah123.jpg",
+      "SourceId": "AppDev1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\",
+      "BasePath": "_content/AppDev1",
+      "RelativePath": "images/ahahabah123.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ahahabah123.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\images\\bia02.jpg",
