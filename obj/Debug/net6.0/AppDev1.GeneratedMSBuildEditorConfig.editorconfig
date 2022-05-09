@@ -23,6 +23,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/source/repos/AppDev1/AppDev1/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -159,6 +171,46 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOutDetail/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dERldGFpbFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOutDetail/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dERldGFpbFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOutDetail/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dERldGFpbFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOutDetail/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dERldGFpbFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOutDetail/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dERldGFpbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOut/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOut/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOut/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOut/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/SoldOut/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29sZE91dFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/Store/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -177,26 +229,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/Store/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/testBooks/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGVzdEJvb2tzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/source/repos/AppDev1/AppDev1/Views/_ViewImports.cshtml]

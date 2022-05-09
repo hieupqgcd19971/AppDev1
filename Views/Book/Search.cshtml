@@ -16,7 +16,7 @@
 			<div class="col card mb-2 ms-5 w-75" style="width: 50%;">
 				<div class="g-0 d-flex flex-row">
 					<div class="col align-items-center" style="width: 100%!important;">
-						<img src="@("~/" + item.ImgUrl)" asp-append-version = "true" class="img-thumbnail w-100" style="width: 100%!important; height: 38vh!important;" alt="...">
+						<img src="@("/images/" + item.ImgUrl)" asp-append-version = "true" class="img-thumbnail w-100" style="width: 100%!important; height: 38vh!important;" alt="...">
 					</div>
 					<div class="col-9">
 						<div class="card-body fs-3">
@@ -28,9 +28,9 @@
 								<p class="card-text text-dark"><small class="text-muted">Price: @Html.DisplayFor(modelItem => item.Price)</small></p>
 								
 							</div>
-							<div >
-								<a asp-controller="Cart" asp-action="Index" class="btn btn-danger fs-3" >Add to cart</a>
-							</div>
+							<div class="red_button add_to_cart_button"style="opacity:1;visibility:visible !important;">
+                                <a asp-controller="Book" asp-action="AddToCart" asp-route-Isbn="@item.BookIsbn" asp-route-quantity="1">add to cart</a>
+                            </div>
 						</div>
 					</div>
 				</div>

@@ -179,10 +179,16 @@
               </li>
             </ul>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block">
+           @* <button type="button" class="btn btn-primary btn-lg btn-block">
               Go to checkout
-              <a asp-controller="Cart" asp-action="Checkout"></a>
-            </button>
+              <a asp-controller="Order" asp-action="Checkout"></a>
+            </button>*@
+            <button type="button" class="btn btn-primary btn-lg btn-block" data-mdb-toggle="tooltip"
+                  title="Go to checkout">
+                 
+                  <a asp-controller="Book" asp-action="Checkout" style="color:red;"> Checkout </a>
+                 @* <i class="fa fa-pencil-square-o"></i>*@
+                </button>
           </div>
         </div>
       </div>

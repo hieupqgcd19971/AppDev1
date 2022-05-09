@@ -192,35 +192,53 @@ namespace AppDev1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BookIsbn,Title,Pages,Author,Category,Price,Desc,ImgUrl,StoreId")] Book book)
+        public async Task<IActionResult> Edit(string id, [Bind("BookIsbn,Title,Pages,Author,Category,Price,Desc,ImgUrl,StoreId")] Book book, IFormFile image)
         {
             if (id != book.BookIsbn)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            else
             {
-                try
+                if (image != null)
                 {
-                    _context.Update(book);
-                    await _context.SaveChangesAsync();
+                    string imgName = book.BookIsbn + Path.GetExtension(image.FileName);
+                    string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", imgName);
+                    using (var stream = new FileStream(savePath, FileMode.Create))
+                    {
+                        image.CopyTo(stream);
+                    }
+                    book.ImgUrl = imgName;
                 }
-                catch (DbUpdateConcurrencyException)
+                /*else
                 {
-                    if (!BookExists(book.BookIsbn))
+                    return View(book);
+                }*/
+
+                if (ModelState.IsValid)
+                {
+                    try
                     {
-                        return NotFound();
+                        _context.Update(book);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!BookExists(book.BookIsbn))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
             }
-            ViewData["StoreId"] = new SelectList(_context.Store, "Id", "Id", book.StoreId);
-            return View(book);
+
+            /*ViewData["StoreId"] = new SelectList(_context.Store, "Id", "Id", book.StoreId);*/
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Book/Delete/5
@@ -306,7 +324,7 @@ namespace AppDev1.Controllers
                         {
                             OrderId = myOrder.Id,
                             BookIsbn = item.BookIsbn,
-                            Quantity = 1
+                            Quantity = item.Quantity
                         };
                         _context.Add(detail);
                     }
