@@ -28,9 +28,9 @@
 								<p class="card-text text-dark"><small class="text-muted">Price: @Html.DisplayFor(modelItem => item.Price)</small></p>
 								
 							</div>
-							<div >
-								<a asp-controller="Cart" asp-action="Index" class="btn btn-danger fs-3" >Add to cart</a>
-							</div>
+							<div class="red_button add_to_cart_button"style="opacity:1;visibility:visible !important;">
+                                <a asp-controller="Book" asp-action="AddToCart" asp-route-Isbn="@item.BookIsbn" asp-route-quantity="1">add to cart</a>
+                            </div>
 						</div>
 					</div>
 				</div>
