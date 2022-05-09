@@ -3,8 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using AppDev1.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using AppDev1.Email;
+using AppDev1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+/*var connectionString = builder.Configuration.GetConnectionString("AppDev1ContextConnection");;*/
+
+/*builder.Services.AddDbContext<AppDev1Context>(options =>
+    options.UseSqlServer(connectionString));;
+
+builder.Services.AddDefaultIdentity<AppDevUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<AppDev1Context>();;*/
 var connectionString = builder.Configuration.GetConnectionString("UserContextConnection");;
 
 builder.Services.AddDbContext<UserContext>(options =>
