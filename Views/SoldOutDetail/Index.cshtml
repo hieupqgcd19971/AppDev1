@@ -22,6 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Book.Price)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.User.Address)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,6 +44,9 @@
             <td>
                 @(item.Book.Price * item.Quantity)
 
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Order.User.Address)
             </td>
           @*  <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
