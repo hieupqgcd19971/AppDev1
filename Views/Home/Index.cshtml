@@ -145,6 +145,8 @@
                                 <div class="product_info">
                                     <h6 class="product_name">@item.Title</h6>
                                     <div class="product_price"> $ @item.Price</div>
+                                  
+                                    
                                 </div>
                             </div>
                             </a>
@@ -167,8 +169,66 @@
               }
           </ul>
       </nav>
-  </div>
+     @* @if (ViewBag.NumberOfPages > 0)
+{
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center">
+            @if (ViewBag.CurrentPage == 0)
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" href="" >
+                    First
+                </a>
+            </li>
+            } else{
+                <li class="page-item ">
+                    <a class="page-link" href="/Home/Index" aria-label="Previous">
+                    First
+                </a>
+                </li>
+            }
+            @{
+                var i = (ViewBag.currentPage > 4 ? ViewBag.currentPage -2 : 1 );
+            }
+                @if(i != 1)
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link">...</a>
+                    </li>
+                }
+                @for (; i <= ViewBag.NumberOfPages && i <= ViewBag.currentPage + 4 ; i++)
+                {
+                    var style = (ViewBag.currentPage == @i) ? "active" : "";
+                    <li class="page-item @style " aria-current="page">
+                        <a asp-action="Index" asp-route-id="@(i)" asp-route-SearchString="@ViewData["CurrentFilter"]" class="page-link">@(i) </a>
+                    </li>
+                    @if(i == ViewBag.currentPage +4 && i < ViewBag.NumberOfPages )
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link">...</a>
+                    </li>
+                }
+                }
+                @if(ViewBag.currentPage == ViewBag.NumberOfPages)
+                {
+                    <li class="page-item disabled ">
+                        <a class="page-link" href="" >
+                            Last
+                        </a>
+                    </li>
+                } else
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="/Home/Index/@ViewBag.NumberOfPages   ">
+                            Last
+                        </a>
+                    </li>
+                }
+        </ul>
+    </nav>
+}*@
 
+  </div>    
             </div>
         </div>
     </div>

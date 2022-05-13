@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using AppDev1.Areas.Identity.Data;
 using AppDev1.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AppDev1.Controllers
 {
@@ -17,17 +18,18 @@ namespace AppDev1.Controllers
         private readonly UserContext _context;
         private readonly UserManager<AppUser> _userManager;
 
-
         public OrderController(UserContext context, UserManager<AppUser> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
 
+        [Authorize(Roles = "Customer")]
         // GET: Order
         public async Task<IActionResult> Index()
         {
-            var userContext = _context.Order.Include(o => o.User);
+            var userid = _userManager.GetUserId(HttpContext.User);
+            var userContext = _context.Order.Include(o => o.User).Where(c => c.UserId == userid);
             return View(await userContext.ToListAsync());
         }
 
@@ -160,53 +162,6 @@ namespace AppDev1.Controllers
         private bool OrderExists(int id)
         {
             return _context.Order.Any(e => e.Id == id);
-        }
-        public async Task<IActionResult> Checkout()
-        {
-            string thisUserId = _userManager.GetUserId(HttpContext.User);
-            List<Cart> myDetailsInCart = await _context.Cart
-                .Where(c => c.UserId == thisUserId)
-                .Include(c => c.Book)
-                .ToListAsync();
-            using (var transaction = _context.Database.BeginTransaction())
-            {
-                try
-                {
-                    //Step 1: create an order
-                    Order myOrder = new Order();
-                    myOrder.UserId = thisUserId;
-                    myOrder.OrderDate = DateTime.Now;
-                    myOrder.Total = myDetailsInCart.Select(c => c.Book.Price)
-                        .Aggregate((c1, c2) => c1 + c2);
-                    _context.Add(myOrder);
-                    await _context.SaveChangesAsync();
-
-                    //Step 2: insert all order details by var "myDetailsInCart"
-                    foreach (var item in myDetailsInCart)
-                    {
-                        OrderDetail detail = new OrderDetail()
-                        {
-                            OrderId = myOrder.Id,
-                            BookIsbn = item.BookIsbn,
-                            Quantity = item.Quantity
-                        };
-                        _context.Add(detail);
-                    }
-                    await _context.SaveChangesAsync();
-
-                    //Step 3: empty/delete the cart we just done for thisUser
-                    _context.Cart.RemoveRange(myDetailsInCart);
-                    await _context.SaveChangesAsync();
-                    transaction.Commit();
-                }
-                catch (DbUpdateException ex)
-                {
-                    transaction.Rollback();
-                    Console.WriteLine("Error occurred in Checkout" + ex);
-                }
-            }
-            return RedirectToAction("Index", "Cart");
-
         }
     }
 }

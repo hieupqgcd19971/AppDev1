@@ -12,7 +12,7 @@ namespace AppDev1.Models
         public string Category { get; set; }
         public double Price { get; set; }
         public string Desc { get; set; }
-        public string ImgUrl { get; set; }
+        public string? ImgUrl { get; set; }
         public int StoreId { get; set; }
         public Store Store { get; set; }
         public virtual ICollection<OrderDetail>? OrderDetails { get; set; }

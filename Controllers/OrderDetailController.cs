@@ -8,22 +8,30 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppDev1.Areas.Identity.Data;
 using AppDev1.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace AppDev1.Controllers
 {
     public class OrderDetailController : Controller
     {
         private readonly UserContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public OrderDetailController(UserContext context)
+
+        public OrderDetailController(UserContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: OrderDetail
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id, string Isbn)
         {
-            var userContext = _context.OrderDetail.Include(o => o.Book).Include(o => o.Order);
+            var book = await _context.Book.FirstOrDefaultAsync(m => m.BookIsbn == Isbn);
+            var userid = _userManager.GetUserId(HttpContext.User);
+            var userContext = _context.OrderDetail.Include(o => o.Book).ThenInclude(i => i.Store).ThenInclude( u=> u.User).Include(o => o.Order)
+                .Where(s => s.OrderId == id)
+                .Where(x => x.Order.UserId == userid);
             return View(await userContext.ToListAsync());
         }
 

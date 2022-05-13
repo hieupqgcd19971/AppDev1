@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PlOJW21j/bugf3mt9hzAUQWklwHOURQ5gsoEwNBj/Oo=",
+  "Hash": "ot6yA3IhtrOVr0GTwnHUmjkH4NDyYB7p1f/Xytbf6N0=",
   "Source": "AppDev1",
   "BasePath": "_content/AppDev1",
   "Mode": "Default",
@@ -4947,12 +4947,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\images\\12312313.jpg",
+      "Identity": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\images\\9785468555330.jpg",
       "SourceId": "AppDev1",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\",
       "BasePath": "_content/AppDev1",
-      "RelativePath": "images/12312313.jpg",
+      "RelativePath": "images/9785468555330.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4961,41 +4961,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\12312313.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\images\\3232.jpg",
-      "SourceId": "AppDev1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\",
-      "BasePath": "_content/AppDev1",
-      "RelativePath": "images/3232.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\3232.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\images\\ahahabah123.jpg",
-      "SourceId": "AppDev1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\",
-      "BasePath": "_content/AppDev1",
-      "RelativePath": "images/ahahabah123.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\ahahabah123.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\9785468555330.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\source\\repos\\AppDev1\\AppDev1\\wwwroot\\images\\bia02.jpg",

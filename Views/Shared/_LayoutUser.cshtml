@@ -170,9 +170,13 @@
                                         {
                                             <li><a asp-controller="Book" asp-action="ForSellerOnly">shop</a></li>
                                         }
+                                        @if (User.IsInRole("Customer"))
+                                        {
+                                            <li><a asp-controller="Order" asp-action="Index">Ordered</a></li>
+                                        }
                                         else
                                         {
-                                            <li class="d-none"><a asp-controller="Book" asp-action="Index">shop</a></li>
+                                            <li class="d-none"><a asp-controller="Order" asp-action="Index">Ordered</a></li>
                                         }
                                         <li><a href="#">promotion</a></li>
                                         <li><a href="#">pages</a></li>

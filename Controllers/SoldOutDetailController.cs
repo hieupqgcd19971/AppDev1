@@ -30,7 +30,7 @@ namespace AppDev1.Controllers
         // GET: SoldOutDetail
         public async Task<IActionResult> Index(int id)
         {
-            var userid = _userManager.GetUserId(HttpContext.User);
+            var userid = _userManager.GetUserId(HttpContext.User); 
             var userContext = _context.OrderDetail.Include(o => o.Book).Include(o => o.Order).Where(s => s.Book.Store.UserId == userid).Where(dt => dt.OrderId == id);
             return View(await userContext.ToListAsync());
         }
