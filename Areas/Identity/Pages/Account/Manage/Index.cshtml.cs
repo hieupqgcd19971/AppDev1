@@ -57,6 +57,7 @@ namespace AppDev1.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             /// 
+           
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Address")]
@@ -131,6 +132,7 @@ namespace AppDev1.Areas.Identity.Pages.Account.Manage
             {
                 user.DoB = Input.DoB;
             }
+           
 
             await _userManager.UpdateAsync(user);
 

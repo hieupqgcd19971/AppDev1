@@ -59,6 +59,7 @@ namespace AppDev1.Controllers
             int numberOfRecords = await _context.Book.CountAsync();     //Count SQL
             int numberOfPages = (int)Math.Ceiling((double)numberOfRecords / _recordsPerPage);
             ViewBag.numberOfPages = numberOfPages;
+
             ViewBag.currentPage = id;
             List<Book> books = await _context.Book
                 .Skip(id * _recordsPerPage)  //Offset SQL
@@ -66,7 +67,6 @@ namespace AppDev1.Controllers
                 .ToListAsync();
 
             return View(books);
-            
         }
         public IActionResult Contact()
         {

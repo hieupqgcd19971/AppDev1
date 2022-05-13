@@ -10,6 +10,7 @@
 <table class="table">
     <thead>
         <tr>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Order)
             </th>
@@ -20,10 +21,7 @@
                 @Html.DisplayNameFor(model => model.Quantity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order.User.Address)
+                Total Price
             </th>
             <th></th>
         </tr>
@@ -31,6 +29,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.OrderId)
 
@@ -41,12 +40,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
+
             <td>
                 @(item.Book.Price * item.Quantity)
 
-            </td>
-             <td>
-                @Html.DisplayFor(modelItem => item.Order.User.Address)
             </td>
           @*  <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
@@ -57,3 +54,4 @@
 }
     </tbody>
 </table>
+

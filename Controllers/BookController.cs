@@ -17,9 +17,9 @@ namespace AppDev1.Controllers
     {
         private readonly UserContext _context;
         private readonly UserManager<AppUser> _userManager;
-        private readonly int maxofpage = 10;
+       /* private readonly int maxofpage = 10;*/
 
-        private readonly int rowonpage = 3;
+        private readonly int rowonpage = 10;
         public BookController(UserContext context, UserManager<AppUser> userManager)
         {
             _context = context;
@@ -40,6 +40,7 @@ namespace AppDev1.Controllers
                         select s;
 
             books = books.Where(s =>s.Store.UserId==userid);
+            ViewData["StoreId"] = _context.Store.Where(s => s.UserId == userid).FirstOrDefault().Name;
             ViewData["CurrentFilter"] = searchString;
             if (searchString != null)
             {
@@ -145,6 +146,7 @@ namespace AppDev1.Controllers
         public async Task<IActionResult> Search(int id = 0, string searchString = "")
         {
             ViewData["CurrentFilter"] = searchString;
+
             var books = from s in _context.Book
                         select s;
             if(searchString != null)
@@ -192,15 +194,60 @@ namespace AppDev1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("BookIsbn,Title,Pages,Author,Category,Price,Desc,ImgUrl,StoreId")] Book book, IFormFile image)
+      /*  public async Task<IActionResult> Edit(string id, [Bind("BookIsbn,Title,Pages,Author,Category,Price,Desc,ImgUrl,StoreId")] Book book, IFormFile image)
         {
-            if (id != book.BookIsbn)
+            if (image != null)
             {
-                return NotFound();
+                string imgName = book.BookIsbn + Path.GetExtension(image.FileName);
+                string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", imgName);
+                using (var stream = new FileStream(savePath, FileMode.Create))
+                {
+                    image.CopyTo(stream);
+                }
+                book.ImgUrl = imgName;
             }
             else
             {
-                if (image != null)
+                return RedirectToAction("Index", "Book");
+            }
+
+                try
+                {
+                    _context.Update(book);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BookExists(book.BookIsbn))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                
+            }
+            var userid = _userManager.GetUserId(HttpContext.User);
+            ViewData["Id"] = new SelectList(_context.Users.Where(c => c.Id == userid), "Id", "UserName", book.BookIsbn);
+
+            return View(book);
+
+
+        }*/
+
+        public async Task<IActionResult> Edit([Bind("BookIsbn,StoreId,Title,Pages,Author,Category,Price,Desc")] Book book, IFormFile image)
+        {
+
+            try
+            {
+                if (image == null)
+                {
+                    Book thisProduct = _context.Book.Where(p => p.BookIsbn == book.BookIsbn).AsNoTracking().FirstOrDefault();
+                    book.ImgUrl = thisProduct.ImgUrl;
+
+                }
+                else
                 {
                     string imgName = book.BookIsbn + Path.GetExtension(image.FileName);
                     string savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", imgName);
@@ -210,35 +257,25 @@ namespace AppDev1.Controllers
                     }
                     book.ImgUrl = imgName;
                 }
-                /*else
+                var userid1 = _userManager.GetUserId(HttpContext.User);
+                Store thisStore = _context.Store.Where(s => s.UserId == userid1).FirstOrDefault();
+                book.StoreId = thisStore.Id;
+                _context.Update(book);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BookExists(book.BookIsbn))
                 {
-                    return View(book);
-                }*/
-
-                if (ModelState.IsValid)
+                    return NotFound();
+                }
+                else
                 {
-                    try
-                    {
-                        _context.Update(book);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!BookExists(book.BookIsbn))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                    return RedirectToAction(nameof(Index));
+                    throw;
                 }
             }
-
-            /*ViewData["StoreId"] = new SelectList(_context.Store, "Id", "Id", book.StoreId);*/
             return RedirectToAction(nameof(Index));
+
         }
 
         // GET: Book/Delete/5
@@ -283,7 +320,6 @@ namespace AppDev1.Controllers
             string thisUserId = _userManager.GetUserId(HttpContext.User);
             
 
-
             Cart fromDb = _context.Cart.FirstOrDefault(c => c.UserId == thisUserId && c.BookIsbn == Isbn);
             //if not existing (or null), add it to cart. If already added to Cart before, ignore it.
             if (fromDb == null)
@@ -312,8 +348,14 @@ namespace AppDev1.Controllers
                     Order myOrder = new Order();
                     myOrder.UserId = thisUserId;
                     myOrder.OrderDate = DateTime.Now;
-                    myOrder.Total = myDetailsInCart.Select(c => c.Book.Price)
-                        .Aggregate((c1, c2) => c1 + c2);
+                    var Total = 0;
+                    for (int i = 0; i < myDetailsInCart.Count; i++)
+                    {
+                        Total += (myDetailsInCart[i].Quantity * (int)myDetailsInCart[i].Book.Price);
+                    }
+
+
+                    myOrder.Total = Total;
                     _context.Add(myOrder);
                     await _context.SaveChangesAsync();
 

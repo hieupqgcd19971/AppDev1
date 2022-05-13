@@ -34,12 +34,15 @@
                 @Html.DisplayFor(modelItem => item.Order.Id)
             </td>
             <td>
+                <a asp-controller="Book" asp-action="DetailBook" asp-route-Isbn="@item.BookIsbn">
                 @Html.DisplayFor(modelItem => item.Book.Title)
+             </a>
             </td>
             <td>
                 @*@Html.DisplayFor(modelItem => item.ImgUrl)*@
                 <div class="d-flex justify-content-around">
                     <img src="@("/images/" + item.Book.ImgUrl)" asp-append-version="true"  style="max-width: 30% "/>
+
                 </div>
             </td>
             <td>
